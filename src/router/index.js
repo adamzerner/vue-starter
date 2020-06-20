@@ -1,19 +1,19 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "@/views/Home/Home.vue";
-import About from "@/views/Info/About.vue";
+import Home from "@/views/home/home.vue";
+import About from "@/views/info/about.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: Home
   },
   {
     path: "/about",
-    name: "About",
+    name: "about",
     component: About
   }
 ];
