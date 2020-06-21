@@ -1,18 +1,33 @@
 <template>
   <section>
     <page-header>Contact</page-header>
-    <strong>Email</strong>
-    <p>
-      <a href="mailto:adamzerner@protonmail.com">adamzerner@protonmail.com</a>
-    </p>
-    <strong>Phone</strong>
-    <p>
-      <a href="tel:516-232-7610">(516) 232-7610</a>
-    </p>
-    <strong>Location</strong>
-    <address>
-      320 Conestoga Way Apt #6304 Henderson, NV, 89002
-    </address>
+    <b-card-group deck>
+      <b-card title="Email">
+        <b-card-text>
+          <a href="mailto:adamzerner@protonmail.com">
+            <b-icon-envelope />
+            adamzerner@protonmail.com
+          </a>
+        </b-card-text>
+      </b-card>
+      <b-card title="Phone">
+        <b-card-text>
+          <a href="tel:516-232-7610">
+            <b-icon-phone />
+            (516) 232-7610
+          </a>
+        </b-card-text>
+      </b-card>
+      <b-card title="Address">
+        <b-card-text>
+          <address>
+            <div>320 Conestoga Way</div>
+            <div>Apt #6304</div>
+            <div>Henderson, NV, 89002</div>
+          </address>
+        </b-card-text>
+      </b-card>
+    </b-card-group>
   </section>
 </template>
 
