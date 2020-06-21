@@ -3,17 +3,17 @@
     <page-header title="Sign In" />
     <b-form>
       <b-form-group label="Email">
-        <b-form-input v-model="form.email" type="email"></b-form-input>
+        <b-form-input v-model="email" type="email"></b-form-input>
       </b-form-group>
       <b-form-group label="Password">
         <b-form-input
           v-if="!showPassword"
-          v-model="form.password"
+          v-model="password"
           type="password"
         ></b-form-input>
         <b-form-input
           v-if="showPassword"
-          v-model="form.password"
+          v-model="password"
           type="text"
         ></b-form-input>
         <template v-slot:description>
@@ -48,10 +48,10 @@ export default {
   },
   data() {
     return {
+      email: "",
+      password: "",
       showPassword: false,
-      form: {
-        email: "",
-      },
+      keepMeSignedIn: true,
     };
   },
 };

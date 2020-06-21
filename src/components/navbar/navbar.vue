@@ -9,6 +9,7 @@
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto">
           <b-nav-item to="sign-in">Sign In</b-nav-item>
+          <b-nav-item to="register">Register</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
