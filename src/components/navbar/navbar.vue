@@ -12,9 +12,8 @@
 
 <script>
 export default {
-  name: "navbar"
+  name: "navbar",
 };
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

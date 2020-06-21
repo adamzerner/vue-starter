@@ -11,11 +11,9 @@ import navbar from "@/components/navbar/navbar.vue";
 export default {
   name: "home",
   components: {
-    navbar
-  }
+    navbar,
+  },
 };
 </script>
 
-
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
