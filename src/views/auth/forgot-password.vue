@@ -1,6 +1,6 @@
 <template>
   <section>
-    <page-header title="Forgot password" />
+    <page-header>Forgot password</page-header>
     <p>
       Forgot your password? Enter your email below and you'll receive an email
       with instructions for setting a new one.

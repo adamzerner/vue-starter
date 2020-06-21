@@ -1,6 +1,6 @@
 <template>
   <section>
-    <page-header title="Sign In" />
+    <page-header>Sign In</page-header>
     <b-form>
       <b-form-group label="Email">
         <b-form-input v-model="email" type="email"></b-form-input>

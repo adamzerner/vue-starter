@@ -1,6 +1,6 @@
 <template>
   <section>
-    <page-header title="Register" />
+    <page-header>Register</page-header>
     <b-form v-on:submit="register" novalidate>
       <b-form-group label="Email">
         <b-form-input v-model="email" type="email"></b-form-input>
