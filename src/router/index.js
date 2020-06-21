@@ -1,11 +1,13 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/home/home.vue";
-import About from "@/views/info/about.vue";
 import SignIn from "@/views/auth/sign-in.vue";
 import Register from "@/views/auth/register.vue";
 import ForgotPassword from "@/views/auth/forgot-password.vue";
 import ChangePassword from "@/views/auth/change-password.vue";
+import Help from "@/views/footer/help.vue";
+import About from "@/views/footer/about.vue";
+import Contact from "@/views/footer/contact.vue";
 
 Vue.use(VueRouter);
 
@@ -14,11 +16,6 @@ const routes = [
     path: "/",
     name: "home",
     component: Home,
-  },
-  {
-    path: "/about",
-    name: "about",
-    component: About,
   },
   {
     path: "/sign-in",
@@ -39,6 +36,21 @@ const routes = [
     path: "/change-password",
     name: "change-password",
     component: ChangePassword,
+  },
+  {
+    path: "/help",
+    name: "help",
+    component: Help,
+  },
+  {
+    path: "/about",
+    name: "about",
+    component: About,
+  },
+  {
+    path: "/contact",
+    name: "contact",
+    component: Contact,
   },
 ];
 
