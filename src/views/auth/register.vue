@@ -24,7 +24,7 @@
 import PageHeader from "@/components/page-header/page-header.vue";
 
 export default {
-  name: "sign-in",
+  name: "register",
   components: {
     "page-header": PageHeader,
   },
