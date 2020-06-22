@@ -43,3 +43,10 @@ https://cli.vuejs.org/guide/deployment.html
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Userlike chat
+
+The only code is the `<script>` below `</body>`.
+
+- If you don't want this chat then just get rid of this code.
+- If you do, sign up with Userlike and paste in the correct `<script>`.
