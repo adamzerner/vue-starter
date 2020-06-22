@@ -2,7 +2,6 @@
   <section class="container">
     <b-navbar toggleable="sm" variant="light">
       <b-navbar-brand to="home">Home</b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav></b-navbar-nav>
         <b-navbar-nav class="ml-auto">
@@ -20,4 +19,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+@media (max-width: map-get($grid-breakpoints, "sm")) {
+  // always showing nav items on mobile instead of using a hamburger menu
+  // this approach is hacky but seems like it doesn't seem like there's a better option
+  #nav-collapse {
+    display: block !important;
+  }
+}
+</style>
