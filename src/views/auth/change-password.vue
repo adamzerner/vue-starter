@@ -30,21 +30,25 @@
           Must be at least six characters
         </template>
       </b-form-group>
-      <b-button type="submit" variant="primary" block>
-        Change password
-      </b-button>
+      <submit-button
+        v-bind:submitting="submitting"
+        defaultText="Change password"
+        submittingText="Changing password..."
+      />
     </b-form>
   </section>
 </template>
 
 <script>
 import PageHeader from "@/components/page-header/page-header.vue";
+import SubmitButton from "@/components/submit-button/submit-button.vue";
 import { required, minLength } from "vuelidate/lib/validators";
 
 export default {
   name: "change-password",
   components: {
     "page-header": PageHeader,
+    "submit-button": SubmitButton,
   },
   data() {
     return {
@@ -53,6 +57,7 @@ export default {
         newPassword: "",
       },
       submitAttempted: false,
+      submitting: false,
     };
   },
   validations: {
@@ -84,7 +89,10 @@ export default {
         return;
       }
 
-      alert("Form submitted!");
+      this.submitting = true;
+      setTimeout(() => {
+        this.submitting = false;
+      }, 1000);
     },
   },
 };

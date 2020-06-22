@@ -21,21 +21,25 @@
           </span>
         </b-form-invalid-feedback>
       </b-form-group>
-      <b-button type="submit" variant="primary" block>
-        Reset my password
-      </b-button>
+      <submit-button
+        v-bind:submitting="submitting"
+        defaultText="Reset password"
+        submittingText="Resetting password..."
+      />
     </b-form>
   </section>
 </template>
 
 <script>
 import PageHeader from "@/components/page-header/page-header.vue";
+import SubmitButton from "@/components/submit-button/submit-button.vue";
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
   name: "forgot-password",
   components: {
     "page-header": PageHeader,
+    "submit-button": SubmitButton,
   },
   data() {
     return {
@@ -43,6 +47,7 @@ export default {
         email: "",
       },
       submitAttempted: false,
+      submitting: false,
     };
   },
   validations: {
@@ -71,7 +76,10 @@ export default {
         return;
       }
 
-      alert("Form submitted!");
+      this.submitting = true;
+      setTimeout(() => {
+        this.submitting = false;
+      }, 1000);
     },
   },
 };
