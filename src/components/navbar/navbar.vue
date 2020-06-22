@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <b-navbar toggleable="sm" variant="light">
-      <b-navbar-brand to="home">Home</b-navbar-brand>
+      <b-navbar-brand to="/">Home</b-navbar-brand>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav></b-navbar-nav>
         <b-navbar-nav class="ml-auto">
