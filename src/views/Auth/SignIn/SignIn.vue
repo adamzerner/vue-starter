@@ -48,7 +48,6 @@
       <BFormCheckbox v-model="form.keepMeSignedIn">
         Keep me signed in on this computer
       </BFormCheckbox>
-      <hr />
       <RouterLink to="forgot-password">Forgot your password?</RouterLink>
       <hr />
       <p>

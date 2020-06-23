@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import Navbar from "@/components/Navbar/Navbar.vue";
-import CookiesNotice from "@/components/CookiesNotice/CookiesNotice.vue";
-import TheFooter from "@/components/TheFooter/TheFooter.vue";
+import Navbar from "@/views/App/Navbar/Navbar.vue";
+import CookiesNotice from "@/views/App/CookiesNotice/CookiesNotice.vue";
+import TheFooter from "@/views/App/TheFooter/TheFooter.vue";
 
 export default {
   name: "home",
