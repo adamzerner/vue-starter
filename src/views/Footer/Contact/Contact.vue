@@ -6,7 +6,7 @@
         <BCardText>
           <a href="mailto:adamzerner@protonmail.com">
             <BIconEnvelope />
-            adamzerner@protonmail.com
+            foo@bar.com
           </a>
         </BCardText>
       </BCard>
@@ -14,16 +14,16 @@
         <BCardText>
           <a href="tel:516-232-7610">
             <BIconPhone />
-            (516) 232-7610
+            (123) 456-7890
           </a>
         </BCardText>
       </BCard>
       <BCard title="Address">
         <BCardText>
           <address>
-            <div>320 Conestoga Way</div>
-            <div>Apt #6304</div>
-            <div>Henderson, NV, 89002</div>
+            <div>123 Main Street</div>
+            <div>PO Box #123</div>
+            <div>Los Angeles, CA, 12345</div>
           </address>
         </BCardText>
       </BCard>
