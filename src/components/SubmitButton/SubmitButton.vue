@@ -1,21 +1,29 @@
 <template>
-  <BButton type="submit" variant="primary" block v-bind:disabled="submitting">
-    {{ submitText }}
-  </BButton>
+  <AsyncButton
+    v-bind:submitting="submitting"
+    v-bind:defaultText="defaultText"
+    v-bind:submittingText="submittingText"
+    v-bind:buttonProps="buttonProps"
+  />
 </template>
 
 <script>
+import AsyncButton from "@/components/AsyncButton/AsyncButton.vue";
+
 export default {
   name: "SubmitButton",
   props: ["submitting", "defaultText", "submittingText"],
-  computed: {
-    submitText() {
-      if (!this.submitting) {
-        return this.defaultText;
-      } else {
-        return this.submittingText;
-      }
-    },
+  components: {
+    AsyncButton,
+  },
+  data() {
+    return {
+      buttonProps: {
+        type: "submit",
+        variant: "primary",
+        block: true,
+      },
+    };
   },
 };
 </script>
