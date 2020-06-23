@@ -36,13 +36,22 @@ yarn test:e2e
 yarn lint
 ```
 
+### Customize configuration
+
+See [Configuration Reference](https://cli.vuejs.org/config/).
+
 ### Deployment
 
 https://cli.vuejs.org/guide/deployment.html
 
-### Customize configuration
+### Environment variables
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Use `.env`, `.env.development`, `.env.production`, and `.env.test`.
+
+- To access environment variables in this codebase, use `process.env.VUE_APP_MY_ENV_VAR`.
+- Make sure to preface environment variables that you need access to with `VUE_APP`.
+- For production environment variables that are sensitive, be sure not to add them to `.env.production` because that is a security vulnerability.
+- For more information, see https://cli.vuejs.org/guide/mode-and-env.html.
 
 ### Userlike chat
 
