@@ -40,6 +40,10 @@ yarn lint
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+### Style
+
+This codebase uses [Prettier](https://prettier.io/) (with a few adjustments in `.prettierrc`) and loosely follows the [Vue Style Guide](https://vuejs.org/v2/style-guide).
+
 ### Deployment
 
 https://cli.vuejs.org/guide/deployment.html
@@ -66,7 +70,7 @@ The code to set up Google Analytics is in the router and uses `vue-gtag`.
 
 - It's only being loaded in production.
 - To finish setting it up you'll need to sign up with Google Analytics, and then set the `VUE_APP_GTAG_ID` environment variable in production.
-- `<cookies-notice>` is being used for GDPR compliance. It utilizes LocalStorage.
+- `CookiesNotice` is being used for GDPR compliance. It utilizes LocalStorage.
 
 ### Home page
 

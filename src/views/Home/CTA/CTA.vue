@@ -1,15 +1,15 @@
 <template>
   <section>
     <p v-if="header">{{ header }}</p>
-    <b-button variant="primary" size="lg" block to="register">
+    <BButton variant="primary" size="lg" block to="register">
       {{ buttonText }}
-    </b-button>
+    </BButton>
   </section>
 </template>
 
 <script>
 export default {
-  name: "cta",
+  name: "CTA",
   props: {
     header: String,
     buttonText: { type: String, default: "Register" },

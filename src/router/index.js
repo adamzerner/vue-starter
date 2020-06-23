@@ -1,14 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import VueGtag from "vue-gtag";
-import Home from "@/views/home/home.vue";
-import SignIn from "@/views/auth/sign-in.vue";
-import Register from "@/views/auth/register.vue";
-import ForgotPassword from "@/views/auth/forgot-password.vue";
-import ChangePassword from "@/views/auth/change-password.vue";
-import Help from "@/views/footer/help.vue";
-import About from "@/views/footer/about.vue";
-import Contact from "@/views/footer/contact.vue";
+import Home from "@/views/Home/home.vue";
+import SignIn from "@/views/Auth/SignIn/SignIn.vue";
+import Register from "@/views/Auth/Register/Register.vue";
+import ForgotPassword from "@/views/Auth/ForgotPassword/ForgotPassword.vue";
+import ChangePassword from "@/views/Auth/ChangePassword/ChangePassword.vue";
+import Help from "@/views/Footer/Help/Help.vue";
+import About from "@/views/Footer/About/About.vue";
+import Contact from "@/views/Footer/Contact/Contact.vue";
 
 Vue.use(VueRouter);
 

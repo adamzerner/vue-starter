@@ -1,20 +1,20 @@
 <template>
   <section class="feature">
-    <b-row>
-      <b-col md>
+    <BRow>
+      <BCol md>
         <h3>{{ header }}</h3>
         <p>{{ paragraph }}</p>
-      </b-col>
-      <b-col md>
-        <b-img v-bind:src="image" fluid-grow alt="Fluid-grow image"></b-img>
-      </b-col>
-    </b-row>
+      </BCol>
+      <BCol md>
+        <BImg v-bind:src="image" fluid-grow alt="Fluid-grow image" />
+      </BCol>
+    </BRow>
   </section>
 </template>
 
 <script>
 export default {
-  name: "feature",
+  name: "Feature",
   props: ["header", "paragraph", "image"],
 };
 </script>

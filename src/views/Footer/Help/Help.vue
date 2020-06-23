@@ -1,8 +1,8 @@
 <template>
   <section class="help">
-    <page-header>Help</page-header>
-    <b-card bg-variant="light">
-      <b-card-text>
+    <PageHeader>Help</PageHeader>
+    <BCard bg-variant="light">
+      <BCardText>
         <section v-for="(category, i) in categories" v-bind:key="category.name">
           <div>
             <a v-bind:href="`#category-${i + 1}`">{{ category.name }}</a>
@@ -18,8 +18,8 @@
             </li>
           </ul>
         </section>
-      </b-card-text>
-    </b-card>
+      </BCardText>
+    </BCard>
     <section class="answers">
       <section v-for="(category, i) in categories" v-bind:key="category.name">
         <h4 v-bind:id="`category-${i + 1}`">{{ category.name }}</h4>
@@ -38,12 +38,12 @@
 </template>
 
 <script>
-import PageHeader from "@/components/page-header/page-header.vue";
+import PageHeader from "@/components/PageHeader/PageHeader.vue";
 
 export default {
-  name: "help",
+  name: "Help",
   components: {
-    "page-header": PageHeader,
+    PageHeader,
   },
   data() {
     return {

@@ -1,25 +1,25 @@
 <template>
   <section id="app">
-    <navbar />
+    <Navbar />
     <section class="container">
-      <router-view />
+      <RouterView />
     </section>
-    <the-footer />
-    <cookies-notice />
+    <TheFooter />
+    <CookiesNotice />
   </section>
 </template>
 
 <script>
-import navbar from "@/components/navbar/navbar.vue";
-import CookiesNotice from "@/components/cookies-notice/cookies-notice.vue";
-import TheFooter from "@/components/footer/footer.vue";
+import Navbar from "@/components/Navbar/Navbar.vue";
+import CookiesNotice from "@/components/CookiesNotice/CookiesNotice.vue";
+import TheFooter from "@/components/TheFooter/TheFooter.vue";
 
 export default {
   name: "home",
   components: {
-    navbar,
-    "cookies-notice": CookiesNotice,
-    "the-footer": TheFooter,
+    Navbar,
+    CookiesNotice,
+    TheFooter,
   },
 };
 </script>

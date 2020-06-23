@@ -1,12 +1,12 @@
 <template>
-  <b-button type="submit" variant="primary" block v-bind:disabled="submitting">
+  <BButton type="submit" variant="primary" block v-bind:disabled="submitting">
     {{ submitText }}
-  </b-button>
+  </BButton>
 </template>
 
 <script>
 export default {
-  name: "submit-button",
+  name: "SubmitButton",
   props: ["submitting", "defaultText", "submittingText"],
   computed: {
     submitText() {

@@ -1,16 +1,16 @@
 <template>
   <footer>
     <ul>
-      <li><b-link to="help">Help</b-link></li>
-      <li><b-link to="about">About</b-link></li>
-      <li><b-link to="contact">Contact</b-link></li>
+      <li><RouterLink to="help">Help</RouterLink></li>
+      <li><RouterLink to="about">About</RouterLink></li>
+      <li><RouterLink to="contact">Contact</RouterLink></li>
     </ul>
   </footer>
 </template>
 
 <script>
 export default {
-  name: "the-footer",
+  name: "TheFooter",
 };
 </script>
 

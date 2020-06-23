@@ -1,19 +1,19 @@
 <template>
-  <b-alert variant="info" v-bind:show="visible" dismissible>
+  <BAlert variant="info" v-bind:show="visible" dismissible>
     This site uses cookies to better understand where visitors are coming from
     and how the site is being used.
     <section class="buttons">
-      <b-button variant="light" v-on:click="optOut">Opt out</b-button>
-      <b-button variant="primary" class="ok" v-on:click="accept">
+      <BButton variant="light" v-on:click="optOut">Opt out</BButton>
+      <BButton variant="primary" class="ok" v-on:click="accept">
         I understand
-      </b-button>
+      </BButton>
     </section>
-  </b-alert>
+  </BAlert>
 </template>
 
 <script>
 export default {
-  name: "cookies-notice",
+  name: "CookiesNotice",
   data() {
     return {
       visible: !localStorage.getItem("acceptsCookies"),

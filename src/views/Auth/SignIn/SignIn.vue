@@ -1,74 +1,74 @@
 <template>
   <section>
-    <page-header>Sign In</page-header>
-    <b-form v-on:submit.stop.prevent="submit" novalidate>
-      <b-form-group label="Email">
-        <b-form-input
+    <PageHeader>Sign In</PageHeader>
+    <BForm v-on:submit.stop.prevent="submit" novalidate>
+      <BFormGroup label="Email">
+        <BFormInput
           v-model="$v.form.email.$model"
           v-bind:state="validateState('email')"
           type="email"
-        ></b-form-input>
-        <b-form-invalid-feedback>
+        ></BFormInput>
+        <BFormInvalidFeedback>
           <span v-if="!$v.form.email.required">
             You forgot to include your email.
           </span>
           <span v-else-if="!$v.form.email.email">
             That is an invalid email address.
           </span>
-        </b-form-invalid-feedback>
-      </b-form-group>
-      <b-form-group label="Password">
-        <b-form-input
+        </BFormInvalidFeedback>
+      </BFormGroup>
+      <BFormGroup label="Password">
+        <BFormInput
           v-if="!showPassword"
           v-model="$v.form.password.$model"
           v-bind:state="validateState('password')"
           type="password"
-        ></b-form-input>
-        <b-form-input
+        ></BFormInput>
+        <BFormInput
           v-if="showPassword"
           v-model="$v.form.password.$model"
           v-bind:state="validateState('password')"
           type="text"
-        ></b-form-input>
-        <b-form-invalid-feedback>
+        ></BFormInput>
+        <BFormInvalidFeedback>
           You forgot to include your password.
-        </b-form-invalid-feedback>
+        </BFormInvalidFeedback>
         <template v-slot:description>
-          <b-form-checkbox v-model="showPassword">
+          <BFormCheckbox v-model="showPassword">
             <span>Show password</span>
-          </b-form-checkbox>
+          </BFormCheckbox>
         </template>
-      </b-form-group>
-      <submit-button
+      </BFormGroup>
+      <SubmitButton
         v-bind:submitting="submitting"
         defaultText="Sign in"
         submittingText="Signing in..."
       />
       <hr />
-      <b-form-checkbox v-model="form.keepMeSignedIn">
+      <BFormCheckbox v-model="form.keepMeSignedIn">
         Keep me signed in on this computer
-      </b-form-checkbox>
+      </BFormCheckbox>
       <hr />
-      <b-link to="forgot-password">Forgot your password?</b-link>
+      <RouterLink to="forgot-password">Forgot your password?</RouterLink>
       <hr />
       <p>
         Don't have an account?
-        <b-link to="register">Register here.</b-link>
+        <RouterLink to="register">Register here.</RouterLink>
       </p>
-    </b-form>
+    </BForm>
   </section>
 </template>
 
 <script>
-import PageHeader from "@/components/page-header/page-header.vue";
-import SubmitButton from "@/components/submit-button/submit-button.vue";
+import PageHeader from "@/components/PageHeader/PageHeader.vue";
+import SubmitButton from "@/components/SubmitButton/SubmitButton.vue";
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
-  name: "sign-in",
+  name: "SignIn",
   components: {
-    "page-header": PageHeader,
-    "submit-button": SubmitButton,
+    PageHeader,
+    SubmitButton,
   },
   data() {
     return {

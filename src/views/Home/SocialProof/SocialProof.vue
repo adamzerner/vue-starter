@@ -12,18 +12,18 @@
       est laborum.
     </p>
     <section class="icons">
-      <b-icon icon="bucket" font-scale="3"></b-icon>
-      <b-icon icon="bag-dash" font-scale="3"></b-icon>
-      <b-icon icon="book" font-scale="3"></b-icon>
-      <b-icon icon="bootstrap" font-scale="3"></b-icon>
-      <b-icon icon="box" font-scale="3"></b-icon>
+      <BIcon icon="bucket" font-scale="3"></BIcon>
+      <BIcon icon="bag-dash" font-scale="3"></BIcon>
+      <BIcon icon="book" font-scale="3"></BIcon>
+      <BIcon icon="bootstrap" font-scale="3"></BIcon>
+      <BIcon icon="box" font-scale="3"></BIcon>
     </section>
   </section>
 </template>
 
 <script>
 export default {
-  name: "social-proof",
+  name: "SocialProof",
 };
 </script>
 

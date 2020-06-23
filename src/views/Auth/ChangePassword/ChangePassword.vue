@@ -1,54 +1,54 @@
 <template>
   <section>
-    <page-header>Change password</page-header>
-    <b-form v-on:submit.stop.prevent="submit" novalidate>
-      <b-form-group label="Old password">
-        <b-form-input
+    <PageHeader>Change password</PageHeader>
+    <BForm v-on:submit.stop.prevent="submit" novalidate>
+      <BFormGroup label="Old password">
+        <BFormInput
           v-model="$v.form.oldPassword.$model"
           v-bind:state="validateState('oldPassword')"
           type="text"
-        ></b-form-input>
-        <b-form-invalid-feedback>
+        ></BFormInput>
+        <BFormInvalidFeedback>
           You forgot to include your old password.
-        </b-form-invalid-feedback>
-      </b-form-group>
-      <b-form-group label="New password">
-        <b-form-input
+        </BFormInvalidFeedback>
+      </BFormGroup>
+      <BFormGroup label="New password">
+        <BFormInput
           v-model="$v.form.newPassword.$model"
           v-bind:state="validateState('newPassword')"
           type="text"
-        ></b-form-input>
-        <b-form-invalid-feedback>
+        ></BFormInput>
+        <BFormInvalidFeedback>
           <span v-if="!$v.form.newPassword.required">
             You forgot to include a new password.
           </span>
           <span v-else-if="!$v.form.newPassword.minLength">
             You're short of the six character requirement.
           </span>
-        </b-form-invalid-feedback>
+        </BFormInvalidFeedback>
         <template v-slot:description>
           Must be at least six characters
         </template>
-      </b-form-group>
-      <submit-button
+      </BFormGroup>
+      <SubmitButton
         v-bind:submitting="submitting"
         defaultText="Change password"
         submittingText="Changing password..."
       />
-    </b-form>
+    </BForm>
   </section>
 </template>
 
 <script>
-import PageHeader from "@/components/page-header/page-header.vue";
-import SubmitButton from "@/components/submit-button/submit-button.vue";
+import PageHeader from "@/components/PageHeader/PageHeader.vue";
+import SubmitButton from "@/components/SubmitButton/SubmitButton.vue";
 import { required, minLength } from "vuelidate/lib/validators";
 
 export default {
-  name: "change-password",
+  name: "ChangePassword",
   components: {
-    "page-header": PageHeader,
-    "submit-button": SubmitButton,
+    PageHeader,
+    SubmitButton,
   },
   data() {
     return {
