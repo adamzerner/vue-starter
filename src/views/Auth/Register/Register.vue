@@ -1,7 +1,7 @@
 <template>
   <section>
     <PageHeader>Register</PageHeader>
-    <BForm v-on:submit.stop.prevent="submit" novalidate>
+    <BForm v-on:submit.stop.prevent="registerWithEmail" novalidate>
       <BFormGroup label="Email">
         <BFormInput
           v-model="$v.form.email.$model"
@@ -36,10 +36,33 @@
         </template>
       </BFormGroup>
       <SubmitButton
-        v-bind:submitting="submitting"
+        v-bind:submitting="submitting.email"
         defaultText="Register"
         submittingText="Registering..."
       />
+      <hr />
+      <SocialButton
+        v-bind:submitting="submitting.google"
+        defaultText="Register with Google"
+        submittingText="Registering with Google..."
+        socialIcon="google"
+        v-on:click="registerWithGoogle"
+      />
+      <SocialButton
+        v-bind:submitting="submitting.twitter"
+        defaultText="Register with Twitter"
+        submittingText="Registering with Twitter..."
+        socialIcon="twitter"
+        v-on:click="registerWithTwitter"
+      />
+      <SocialButton
+        v-bind:submitting="submitting.linkedin"
+        defaultText="Register with LinkedIn"
+        submittingText="Registering with LinkedIn..."
+        socialIcon="linkedin"
+        v-on:click="registerWithLinkedIn"
+      />
+      <hr />
       <section class="bottom">
         Already have an account?
         <RouterLink to="sign-in">Sign in here.</RouterLink>
@@ -51,6 +74,7 @@
 <script>
 import PageHeader from "@/components/PageHeader/PageHeader.vue";
 import SubmitButton from "@/components/SubmitButton/SubmitButton.vue";
+import SocialButton from "@/views/Auth/SocialButton/SocialButton.vue";
 import { required, email, minLength } from "vuelidate/lib/validators";
 
 export default {
@@ -58,6 +82,7 @@ export default {
   components: {
     PageHeader,
     SubmitButton,
+    SocialButton,
   },
   data() {
     return {
@@ -66,7 +91,12 @@ export default {
         password: "",
       },
       submitAttempted: false,
-      submitting: false,
+      submitting: {
+        email: false,
+        google: false,
+        twitter: false,
+        linkedin: false,
+      },
     };
   },
   validations: {
@@ -91,7 +121,7 @@ export default {
 
       return null;
     },
-    submit() {
+    registerWithEmail() {
       this.submitAttempted = true;
       this.$v.form.$touch();
 
@@ -104,6 +134,24 @@ export default {
         this.submitting = false;
       }, 1000);
     },
+    registerWithGoogle() {
+      this.submitting.google = true;
+      setTimeout(() => {
+        this.submitting.google = false;
+      }, 1000);
+    },
+    registerWithTwitter() {
+      this.submitting.twitter = true;
+      setTimeout(() => {
+        this.submitting.twitter = false;
+      }, 1000);
+    },
+    registerWithLinkedIn() {
+      this.submitting.linkedin = true;
+      setTimeout(() => {
+        this.submitting.linkedin = false;
+      }, 1000);
+    },
   },
 };
 </script>
@@ -111,5 +159,9 @@ export default {
 <style lang="scss" scoped>
 .bottom {
   margin-top: 20px;
+}
+
+.btn-social {
+  margin: 10px 0;
 }
 </style>
