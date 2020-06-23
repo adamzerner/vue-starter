@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import VueGtag from "vue-gtag";
 import Home from "@/views/home/home.vue";
 import SignIn from "@/views/auth/sign-in.vue";
 import Register from "@/views/auth/register.vue";
@@ -59,5 +60,16 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
+
+if (process.env.NODE_ENV === "production") {
+  Vue.use(
+    VueGtag,
+    {
+      config: { id: process.env.VUE_APP_GTAG_ID },
+      enabled: localStorage.getItem("acceptsCookies") === "no" ? false : true,
+    },
+    router
+  );
+}
 
 export default router;

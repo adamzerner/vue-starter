@@ -50,3 +50,11 @@ The only code is the `<script>` below `</body>`.
 
 - If you don't want this chat then just get rid of this code.
 - If you do, sign up with Userlike and paste in the correct `<script>`.
+
+### Google Analytics
+
+The code to set up Google Analytics is in the router and uses `vue-gtag`.
+
+- It's only being loaded in production.
+- To finish setting it up you'll need to sign up with Google Analytics, and then set the `VUE_APP_GTAG_ID` environment variable in production.
+- `<cookies-notice>` is being used for GDPR compliance. It utilizes LocalStorage.
