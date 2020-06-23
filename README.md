@@ -58,3 +58,11 @@ The code to set up Google Analytics is in the router and uses `vue-gtag`.
 - It's only being loaded in production.
 - To finish setting it up you'll need to sign up with Google Analytics, and then set the `VUE_APP_GTAG_ID` environment variable in production.
 - `<cookies-notice>` is being used for GDPR compliance. It utilizes LocalStorage.
+
+### Home page
+
+The template is based off of Julian Shapiro's advice for [how to construct landing pages](https://www.julian.com/guide/growth/landing-pages).
+
+From his guide:
+
+> Tip — If you don’t yet have noteworthy customers, provide your product for free to people at well-known companies. Then place their company logos on your site if they wind up using you.
