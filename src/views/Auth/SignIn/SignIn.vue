@@ -1,7 +1,7 @@
 <template>
   <section>
     <PageHeader>Sign In</PageHeader>
-    <BForm v-on:submit.stop.prevent="submit" novalidate>
+    <BForm v-on:submit.stop.prevent="signInWithEmail" novalidate>
       <BFormGroup label="Email">
         <BFormInput
           v-model="$v.form.email.$model"
@@ -40,15 +40,36 @@
         </template>
       </BFormGroup>
       <SubmitButton
-        v-bind:submitting="submitting"
+        v-bind:submitting="submitting.email"
         defaultText="Sign in"
         submittingText="Signing in..."
       />
-      <hr />
-      <BFormCheckbox v-model="form.keepMeSignedIn">
+      <BFormCheckbox v-model="form.keepMeSignedIn" class="remember-me">
         Keep me signed in on this computer
       </BFormCheckbox>
       <RouterLink to="forgot-password">Forgot your password?</RouterLink>
+      <hr />
+      <SocialButton
+        v-bind:submitting="submitting.google"
+        defaultText="Sign in with Google"
+        submittingText="Signing in with Google..."
+        socialIcon="google"
+        v-on:click="signInWithGoogle"
+      />
+      <SocialButton
+        v-bind:submitting="submitting.twitter"
+        defaultText="Sign in with Twitter"
+        submittingText="Signing in with Twitter..."
+        socialIcon="twitter"
+        v-on:click="signInWithTwitter"
+      />
+      <SocialButton
+        v-bind:submitting="submitting.linkedin"
+        defaultText="Sign in with LinkedIn"
+        submittingText="Signing in with LinkedIn..."
+        socialIcon="linkedin"
+        v-on:click="signInWithLinkedIn"
+      />
       <hr />
       <p>
         Don't have an account?
@@ -61,6 +82,7 @@
 <script>
 import PageHeader from "@/components/PageHeader/PageHeader.vue";
 import SubmitButton from "@/components/SubmitButton/SubmitButton.vue";
+import SocialButton from "@/views/Auth/SocialButton/SocialButton.vue";
 import { required, email } from "vuelidate/lib/validators";
 
 export default {
@@ -68,6 +90,7 @@ export default {
   components: {
     PageHeader,
     SubmitButton,
+    SocialButton,
   },
   data() {
     return {
@@ -78,7 +101,12 @@ export default {
       },
       showPassword: false,
       submitAttempted: false,
-      submitting: false,
+      submitting: {
+        email: false,
+        google: false,
+        twitter: false,
+        linkedin: false,
+      },
     };
   },
   validations: {
@@ -102,7 +130,7 @@ export default {
 
       return null;
     },
-    submit() {
+    signInWithEmail() {
       this.submitAttempted = true;
       this.$v.form.$touch();
 
@@ -110,9 +138,27 @@ export default {
         return;
       }
 
-      this.submitting = true;
+      this.submitting.email = true;
       setTimeout(() => {
-        this.submitting = false;
+        this.submitting.email = false;
+      }, 1000);
+    },
+    signInWithGoogle() {
+      this.submitting.google = true;
+      setTimeout(() => {
+        this.submitting.google = false;
+      }, 1000);
+    },
+    signInWithTwitter() {
+      this.submitting.twitter = true;
+      setTimeout(() => {
+        this.submitting.twitter = false;
+      }, 1000);
+    },
+    signInWithLinkedIn() {
+      this.submitting.linkedin = true;
+      setTimeout(() => {
+        this.submitting.linkedin = false;
       }, 1000);
     },
   },
@@ -122,5 +168,13 @@ export default {
 <style lang="scss" scoped>
 span {
   vertical-align: middle;
+}
+
+.btn-social {
+  margin: 10px 0;
+}
+
+.remember-me {
+  margin: 10px 0;
 }
 </style>

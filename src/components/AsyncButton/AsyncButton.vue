@@ -5,7 +5,7 @@
     v-bind:disabled="submitting"
     v-on:click="$emit('click')"
   >
-    <span v-if="socialIcon" v-bind:class="`fa fa-${socialIcon}`"></span>
+    <span v-if="socialIcon" v-bind:class="`fab fa-${socialIcon}`"></span>
     {{ submitText }}
   </BButton>
 </template>
