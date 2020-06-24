@@ -6,6 +6,12 @@
       tab, you'll have to enable cross-site tracking: Safari > Preferences >
       Privacy > Website tracking.
     </BAlert>
+    <!-- prettier-ignore -->
+    <BAlert variant="info" v-bind:show="!!previousSignInType">
+      Last time you were here you used
+      <strong>{{ previousSignInType }}</strong>
+      to sign in<span v-if="previousSignInType === 'email'"> (as opposed to Google, Twitter or LinkedIn)</span>.
+    </BAlert>
     <BForm v-on:submit.stop.prevent="signInWithEmail" novalidate>
       <BFormGroup label="Email">
         <BFormInput
@@ -40,7 +46,7 @@
         </BFormInvalidFeedback>
         <template v-slot:description>
           <BFormCheckbox v-model="showPassword">
-            <span>Show password</span>
+            <span class="show-password">Show password</span>
           </BFormCheckbox>
         </template>
       </BFormGroup>
@@ -129,6 +135,9 @@ export default {
     isSafari() {
       return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     },
+    previousSignInType() {
+      return localStorage.getItem("previousSignInType");
+    },
   },
   methods: {
     validateState(name) {
@@ -150,24 +159,28 @@ export default {
 
       this.submitting.email = true;
       setTimeout(() => {
+        localStorage.setItem("previousSignInType", "email");
         this.submitting.email = false;
       }, 1000);
     },
     signInWithGoogle() {
       this.submitting.google = true;
       setTimeout(() => {
+        localStorage.setItem("previousSignInType", "Google");
         this.submitting.google = false;
       }, 1000);
     },
     signInWithTwitter() {
       this.submitting.twitter = true;
       setTimeout(() => {
+        localStorage.setItem("previousSignInType", "Twitter");
         this.submitting.twitter = false;
       }, 1000);
     },
     signInWithLinkedIn() {
       this.submitting.linkedin = true;
       setTimeout(() => {
+        localStorage.setItem("previousSignInType", "LinkedIn");
         this.submitting.linkedin = false;
       }, 1000);
     },
@@ -176,7 +189,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-span {
+.show-password {
   vertical-align: middle;
 }
 
