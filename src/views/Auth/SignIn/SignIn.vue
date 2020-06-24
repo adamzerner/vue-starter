@@ -31,16 +31,9 @@
       </BFormGroup>
       <BFormGroup label="Password">
         <BFormInput
-          v-if="!showPassword"
           v-model="$v.form.password.$model"
           v-bind:state="validateState('password')"
-          type="password"
-        ></BFormInput>
-        <BFormInput
-          v-if="showPassword"
-          v-model="$v.form.password.$model"
-          v-bind:state="validateState('password')"
-          type="text"
+          v-bind:type="passwordFieldType"
         ></BFormInput>
         <BFormInvalidFeedback>
           You forgot to include your password.
@@ -138,6 +131,13 @@ export default {
     },
     previousSignInType() {
       return localStorage.getItem("previousSignInType");
+    },
+    passwordFieldType() {
+      if (this.showPassword) {
+        return "text";
+      }
+
+      return "password";
     },
   },
   methods: {
