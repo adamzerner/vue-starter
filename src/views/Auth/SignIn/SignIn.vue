@@ -18,6 +18,7 @@
           v-model="$v.form.email.$model"
           v-bind:state="validateState('email')"
           type="email"
+          autofocus
         ></BFormInput>
         <BFormInvalidFeedback>
           <span v-if="!$v.form.email.required">

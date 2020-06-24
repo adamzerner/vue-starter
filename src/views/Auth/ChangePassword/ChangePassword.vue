@@ -17,6 +17,7 @@
           v-model="$v.form.newPassword.$model"
           v-bind:state="validateState('newPassword')"
           type="text"
+          autofocus
         ></BFormInput>
         <BFormInvalidFeedback>
           <span v-if="!$v.form.newPassword.required">
