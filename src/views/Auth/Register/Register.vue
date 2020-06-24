@@ -143,9 +143,9 @@ export default {
         return;
       }
 
-      this.submitting = true;
+      this.submitting.email = true;
       setTimeout(() => {
-        this.submitting = false;
+        this.submitting.email = false;
       }, 1000);
     },
     registerWithGoogle() {
