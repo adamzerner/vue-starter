@@ -42,6 +42,9 @@
           <BFormCheckbox v-model="showPassword">
             <span class="show-password">Show password</span>
           </BFormCheckbox>
+          <p v-if="daysSincePasswordChange">
+            <em>{{ daysSincePasswordChangeText }}</em>
+          </p>
         </template>
       </BFormGroup>
       <SubmitButton
@@ -89,6 +92,7 @@ import PageHeader from "@/components/PageHeader/PageHeader.vue";
 import SubmitButton from "@/components/SubmitButton/SubmitButton.vue";
 import SocialButton from "@/views/Auth/SocialButton/SocialButton.vue";
 import { required, email } from "vuelidate/lib/validators";
+import { getDaysBetweenDates } from "@/utilities";
 
 export default {
   name: "SignIn",
@@ -138,6 +142,39 @@ export default {
       }
 
       return "password";
+    },
+    daysSincePasswordChange() {
+      let changedPasswordDate = localStorage.getItem("changedPasswordDate");
+      let daysSincePasswordChange;
+
+      if (!changedPasswordDate) {
+        return null;
+      }
+
+      daysSincePasswordChange = getDaysBetweenDates(
+        changedPasswordDate,
+        new Date()
+      );
+
+      if (daysSincePasswordChange > 7) {
+        localStorage.removeItem("changedPasswordDate");
+        return null;
+      }
+
+      return daysSincePasswordChange;
+    },
+    daysSincePasswordChangeText() {
+      if (this.daysSincePasswordChange < 1) {
+        return "Note: You changed your password less than 24 hours ago.";
+      }
+
+      if (this.daysSincePasswordChange < 1.5) {
+        return `Note: You changed your password yesterday.`;
+      }
+
+      return `Note: You changed your password ${Math.round(
+        this.daysSincePasswordChange
+      )} days ago.`;
     },
   },
   methods: {
