@@ -22,7 +22,7 @@
         <BFormInput
           v-model="$v.form.password.$model"
           v-bind:state="validateState('password')"
-          type="text"
+          v-bind:type="passwordFieldType"
         ></BFormInput>
         <BFormInvalidFeedback>
           <span v-if="!$v.form.password.required">
@@ -33,6 +33,9 @@
           </span>
         </BFormInvalidFeedback>
         <template v-slot:description>
+          <BFormCheckbox v-model="showPassword">
+            <span class="show-password">Show password</span>
+          </BFormCheckbox>
           Must be at least six characters
         </template>
       </BFormGroup>
@@ -91,6 +94,7 @@ export default {
         email: "",
         password: "",
       },
+      showPassword: false,
       submitAttempted: false,
       submitting: {
         email: false,
@@ -99,6 +103,15 @@ export default {
         linkedin: false,
       },
     };
+  },
+  computed: {
+    passwordFieldType() {
+      if (this.showPassword) {
+        return "text";
+      }
+
+      return "password";
+    },
   },
   validations: {
     form: {
@@ -158,6 +171,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.show-password {
+  vertical-align: middle;
+}
+
 .bottom {
   margin-top: 20px;
 }
