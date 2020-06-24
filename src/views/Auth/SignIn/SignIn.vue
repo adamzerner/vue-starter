@@ -1,6 +1,11 @@
 <template>
   <section>
     <PageHeader>Sign In</PageHeader>
+    <BAlert variant="info" v-bind:show="form.keepMeSignedIn && isSafari">
+      You are using Safari. If you want to remain logged in after closing the
+      tab, you'll have to enable cross-site tracking: Safari > Preferences >
+      Privacy > Website tracking.
+    </BAlert>
     <BForm v-on:submit.stop.prevent="signInWithEmail" novalidate>
       <BFormGroup label="Email">
         <BFormInput
@@ -118,6 +123,11 @@ export default {
       password: {
         required,
       },
+    },
+  },
+  computed: {
+    isSafari() {
+      return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     },
   },
   methods: {
