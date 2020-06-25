@@ -187,7 +187,7 @@ export default {
 
       return null;
     },
-    signInWithEmail() {
+    async signInWithEmail() {
       this.submitAttempted = true;
       this.$v.form.$touch();
 
@@ -196,10 +196,16 @@ export default {
       }
 
       this.submitting.email = true;
-      setTimeout(() => {
+
+      try {
+        let response = await this.$http.post("/auth/sign-in");
+        console.log(response.data);
         localStorage.setItem("previousSignInType", "email");
+      } catch (e) {
+        console.log(e);
+      } finally {
         this.submitting.email = false;
-      }, 1000);
+      }
     },
     signInWithGoogle() {
       this.submitting.google = true;

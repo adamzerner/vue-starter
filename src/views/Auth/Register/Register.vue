@@ -135,7 +135,7 @@ export default {
 
       return null;
     },
-    registerWithEmail() {
+    async registerWithEmail() {
       this.submitAttempted = true;
       this.$v.form.$touch();
 
@@ -144,9 +144,15 @@ export default {
       }
 
       this.submitting.email = true;
-      setTimeout(() => {
+
+      try {
+        let response = await this.$http.post("/auth/register");
+        console.log(response.data);
+      } catch (e) {
+        console.log(e);
+      } finally {
         this.submitting.email = false;
-      }, 1000);
+      }
     },
     registerWithGoogle() {
       this.submitting.google = true;
