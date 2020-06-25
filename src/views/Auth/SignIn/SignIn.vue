@@ -1,7 +1,8 @@
 <template>
   <section>
     <PageHeader>Sign In</PageHeader>
-    <BAlert variant="info" v-bind:show="form.keepMeSignedIn && isSafari">
+    <Errors v-bind:errors="errorsFromBackend" />
+    <BAlert variant="info" v-bind:show="keepMeSignedIn && isSafari">
       You are using Safari. If you want to remain logged in after closing the
       tab, you'll have to enable cross-site tracking: Safari > Preferences >
       Privacy > Website tracking.
@@ -52,7 +53,7 @@
         defaultText="Sign in"
         submittingText="Signing in..."
       />
-      <BFormCheckbox v-model="form.keepMeSignedIn" class="remember-me">
+      <BFormCheckbox v-model="keepMeSignedIn" class="remember-me">
         Keep me signed in on this computer
       </BFormCheckbox>
       <RouterLink to="forgot-password">Forgot your password?</RouterLink>
@@ -88,6 +89,7 @@
 </template>
 
 <script>
+import Errors from "@/components/Errors/Errors.vue";
 import PageHeader from "@/components/PageHeader/PageHeader.vue";
 import SubmitButton from "@/components/SubmitButton/SubmitButton.vue";
 import SocialButton from "@/views/Auth/SocialButton/SocialButton.vue";
@@ -97,6 +99,7 @@ import { getDaysBetweenDates } from "@/utilities";
 export default {
   name: "SignIn",
   components: {
+    Errors,
     PageHeader,
     SubmitButton,
     SocialButton,
@@ -106,8 +109,8 @@ export default {
       form: {
         email: "",
         password: "",
-        keepMeSignedIn: true,
       },
+      keepMeSignedIn: true,
       showPassword: false,
       submitAttempted: false,
       submitting: {
@@ -116,6 +119,7 @@ export default {
         twitter: false,
         linkedin: false,
       },
+      errorsFromBackend: [],
     };
   },
   validations: {
@@ -198,11 +202,14 @@ export default {
       this.submitting.email = true;
 
       try {
-        let response = await this.$http.post("/auth/sign-in");
+        let response = await this.$http.post("/auth/sign-in", {
+          user: this.form,
+          keepMeSignedIn: this.keepMeSignedIn,
+        });
         console.log(response.data);
         localStorage.setItem("previousSignInType", "email");
       } catch (e) {
-        console.log(e);
+        this.errorsFromBackend = [...e.response.data.errors];
       } finally {
         this.submitting.email = false;
       }

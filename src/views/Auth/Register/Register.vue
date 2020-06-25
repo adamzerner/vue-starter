@@ -1,6 +1,7 @@
 <template>
   <section>
     <PageHeader>Register</PageHeader>
+    <Errors v-bind:errors="errorsFromBackend" />
     <BForm v-on:submit.stop.prevent="registerWithEmail" novalidate>
       <BFormGroup label="Email">
         <BFormInput
@@ -76,6 +77,7 @@
 </template>
 
 <script>
+import Errors from "@/components/Errors/Errors.vue";
 import PageHeader from "@/components/PageHeader/PageHeader.vue";
 import SubmitButton from "@/components/SubmitButton/SubmitButton.vue";
 import SocialButton from "@/views/Auth/SocialButton/SocialButton.vue";
@@ -84,6 +86,7 @@ import { required, email, minLength } from "vuelidate/lib/validators";
 export default {
   name: "Register",
   components: {
+    Errors,
     PageHeader,
     SubmitButton,
     SocialButton,
@@ -102,6 +105,7 @@ export default {
         twitter: false,
         linkedin: false,
       },
+      errorsFromBackend: [],
     };
   },
   computed: {
@@ -146,10 +150,12 @@ export default {
       this.submitting.email = true;
 
       try {
-        let response = await this.$http.post("/auth/register");
+        let response = await this.$http.post("/auth/register", {
+          user: this.form,
+        });
         console.log(response.data);
       } catch (e) {
-        console.log(e);
+        this.errorsFromBackend = [...e.response.data.errors];
       } finally {
         this.submitting.email = false;
       }
