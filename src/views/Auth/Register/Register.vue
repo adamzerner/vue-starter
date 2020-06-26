@@ -150,7 +150,7 @@ export default {
       this.submitting.email = true;
 
       try {
-        let response = await this.$http.post("/auth/register", {
+        const response = await this.$http.post("/auth/register", {
           user: this.form,
         });
         this.$store.commit("user/setUser", response.data.user);
