@@ -34,9 +34,9 @@ export default {
   methods: {
     async signOut() {
       try {
-        await this.$http.get(`/auth/logout`);
+        await this.$http.delete("/auth/sign-out");
         this.$store.dispatch("user/clearUser");
-        this.$router.push("home");
+        this.$router.push("/");
       } catch (e) {
         console.log(e);
       }
