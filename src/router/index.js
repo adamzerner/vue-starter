@@ -1,102 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import VueGtag from "vue-gtag";
-import Home from "@/views/Home/Home.vue";
-import SignIn from "@/views/Auth/SignIn/SignIn.vue";
-import Register from "@/views/Auth/Register/Register.vue";
-import ForgotPassword from "@/views/Auth/ForgotPassword/ForgotPassword.vue";
-import ChangePassword from "@/views/Auth/ChangePassword/ChangePassword.vue";
-import Account from "@/views/User/Account/Account.vue";
-import EditAccount from "@/views/User/EditAccount/EditAccount.vue";
-import Help from "@/views/Footer/Help/Help.vue";
-import About from "@/views/Footer/About/About.vue";
-import Contact from "@/views/Footer/Contact/Contact.vue";
 import store from "@/store";
+import routes from "./routes";
+import checkPermission from "./check-permission";
+import setUpAnalytics from "./set-up-analytics";
 
 Vue.use(VueRouter);
-
-const routes = [
-  {
-    path: "/",
-    name: "home",
-    component: Home,
-    meta: {
-      title: "VueStarter",
-    },
-  },
-  {
-    path: "/sign-in",
-    name: "sign-in",
-    component: SignIn,
-    meta: {
-      title: "VueStarter | Sign In",
-    },
-  },
-  {
-    path: "/register",
-    name: "register",
-    component: Register,
-    meta: {
-      title: "VueStarter | Register",
-    },
-  },
-  {
-    path: "/forgot-password",
-    name: "forgot-password",
-    component: ForgotPassword,
-    meta: {
-      title: "VueStarter | Forgot Password",
-    },
-  },
-  {
-    path: "/change-password",
-    name: "change-password",
-    component: ChangePassword,
-    meta: {
-      title: "VueStarter | Change Password",
-    },
-  },
-  {
-    path: "/account",
-    name: "account",
-    component: Account,
-    meta: {
-      title: "VueStarter | Account",
-    },
-  },
-  {
-    path: "/account/edit",
-    name: "edit-account",
-    component: EditAccount,
-    meta: {
-      title: "VueStarter | Edit Account",
-    },
-  },
-  {
-    path: "/help",
-    name: "help",
-    component: Help,
-    meta: {
-      title: "VueStarter | Help",
-    },
-  },
-  {
-    path: "/about",
-    name: "about",
-    component: About,
-    meta: {
-      title: "VueStarter | About",
-    },
-  },
-  {
-    path: "/contact",
-    name: "contact",
-    component: Contact,
-    meta: {
-      title: "VueStarter | Contact",
-    },
-  },
-];
 
 const router = new VueRouter({
   mode: "history",
@@ -104,32 +13,30 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   document.title = to.meta.title;
 
   if (store.state.user.user.email === undefined) {
-    Vue.axios
-      .get("/auth/me")
-      .then((res) => {
-        return store.commit("user/setUser", res.data.user);
-      })
-      .catch(() => {
-        return store.dispatch("user/clearUser");
-      });
+    try {
+      const response = await Vue.axios.get("/auth/me");
+
+      store.commit("user/setUser", response.data.user);
+    } catch (e) {
+      store.dispatch("user/clearUser");
+    }
+  }
+
+  const fallbackPath = checkPermission(to.meta);
+
+  if (fallbackPath) {
+    return next(fallbackPath);
   }
 
   next();
 });
 
 if (process.env.NODE_ENV === "production") {
-  Vue.use(
-    VueGtag,
-    {
-      config: { id: process.env.VUE_APP_GTAG_ID },
-      enabled: localStorage.getItem("acceptsCookies") === "no" ? false : true,
-    },
-    router
-  );
+  setUpAnalytics(router);
 }
 
 export default router;
