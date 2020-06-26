@@ -3,6 +3,7 @@ import SignIn from "@/views/Auth/SignIn/SignIn.vue";
 import Register from "@/views/Auth/Register/Register.vue";
 import ForgotPassword from "@/views/Auth/ForgotPassword/ForgotPassword.vue";
 import ChangePassword from "@/views/Auth/ChangePassword/ChangePassword.vue";
+import CreateNewPassword from "@/views/Auth/CreateNewPassword/CreateNewPassword.vue";
 import Account from "@/views/User/Account/Account.vue";
 import EditAccount from "@/views/User/EditAccount/EditAccount.vue";
 import Help from "@/views/Footer/Help/Help.vue";
@@ -52,6 +53,15 @@ export default [
     meta: {
       requiresSignedIn: true,
       title: "VueStarter | Change Password",
+    },
+  },
+  {
+    path: "/create-new-password",
+    name: "create-new-password",
+    component: CreateNewPassword,
+    meta: {
+      requiresSignedOut: true,
+      title: "VueStarter | Create New Password",
     },
   },
   {
