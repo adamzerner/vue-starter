@@ -84,7 +84,7 @@ export default {
       this.submitting = true;
 
       try {
-        await this.$http.patch(`/auth/reset-password/${token}`, this.form);
+        await this.$http.post(`/auth/reset-password/${token}`, this.form);
         alert("You have successfully reset your password.");
         this.$router.push("/sign-in");
         localStorage.setItem("changedPasswordDate", new Date());

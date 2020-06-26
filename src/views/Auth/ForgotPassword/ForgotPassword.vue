@@ -1,6 +1,7 @@
 <template>
   <section>
     <PageHeader>Forgot password</PageHeader>
+    <Errors v-bind:errors="errorsFromBackend" />
     <p>
       Forgot your password? Enter your email below and you'll receive an email
       with instructions for setting a new one.
@@ -33,6 +34,7 @@
 
 <script>
 import PageHeader from "@/components/PageHeader/PageHeader.vue";
+import Errors from "@/components/Errors/Errors.vue";
 import SubmitButton from "@/components/SubmitButton/SubmitButton.vue";
 import { required, email } from "vuelidate/lib/validators";
 
@@ -40,6 +42,7 @@ export default {
   name: "ForgotPassword",
   components: {
     PageHeader,
+    Errors,
     SubmitButton,
   },
   data() {
@@ -49,6 +52,7 @@ export default {
       },
       submitAttempted: false,
       submitting: false,
+      errorsFromBackend: [],
     };
   },
   validations: {
@@ -69,7 +73,7 @@ export default {
 
       return null;
     },
-    submit() {
+    async submit() {
       this.submitAttempted = true;
       this.$v.form.$touch();
 
@@ -78,9 +82,17 @@ export default {
       }
 
       this.submitting = true;
-      setTimeout(() => {
+
+      try {
+        await this.$http.post("/auth/reset-password/", this.form);
+      } catch (e) {
+        this.errorsFromBackend = [...e.response.data.errors];
+      } finally {
         this.submitting = false;
-      }, 1000);
+        alert(
+          "An email was sent. Please check your email and follow the instructions there to finish resetting your password."
+        );
+      }
     },
   },
 };

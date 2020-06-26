@@ -56,7 +56,7 @@ export default [
     },
   },
   {
-    path: "/create-new-password",
+    path: "/create-new-password/:token",
     name: "create-new-password",
     component: CreateNewPassword,
     meta: {

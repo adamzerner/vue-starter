@@ -2,7 +2,14 @@ export default (startDate, endDate) => {
   const millisecondsPerDay = 24 * 60 * 60 * 1000;
 
   return (
-    (this._treatDateAsUTC(endDate) - this._treatDateAsUTC(startDate)) /
-    millisecondsPerDay
+    (treatDateAsUTC(endDate) - treatDateAsUTC(startDate)) / millisecondsPerDay
   );
+};
+
+const treatDateAsUTC = (date) => {
+  let result = new Date(date);
+
+  result.setMinutes(result.getMinutes() - result.getTimezoneOffset());
+
+  return result;
 };
