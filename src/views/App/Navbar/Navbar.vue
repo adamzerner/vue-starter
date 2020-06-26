@@ -5,8 +5,17 @@
       <BCollapse id="nav-collapse" is-nav>
         <BNavbar-nav></BNavbar-nav>
         <BNavbar-nav class="ml-auto">
-          <BNavItem to="sign-in">Sign In</BNavItem>
-          <BNavItem to="register">Register</BNavItem>
+          <fragment v-if="signedIn">
+            <BNavItemDropdown text="Account" right>
+              <BDropdownItem href="#" v-on:click.prevent="signOut()">
+                Sign out
+              </BDropdownItem>
+            </BNavItemDropdown>
+          </fragment>
+          <fragment v-else>
+            <BNavItem to="sign-in">Sign In</BNavItem>
+            <BNavItem to="register">Register</BNavItem>
+          </fragment>
         </BNavbar-nav>
       </BCollapse>
     </BNavbar>
@@ -16,6 +25,22 @@
 <script>
 export default {
   name: "Navbar",
+  computed: {
+    signedIn() {
+      return this.$store.getters["user/signedIn"];
+    },
+  },
+  methods: {
+    async signOut() {
+      try {
+        await this.$http.get(`/auth/logout`);
+        this.$store.dispatch("user/clearUser");
+        this.$router.push("home");
+      } catch (e) {
+        console.log(e);
+      }
+    },
+  },
 };
 </script>
 

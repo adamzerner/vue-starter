@@ -153,7 +153,7 @@ export default {
         let response = await this.$http.post("/auth/register", {
           user: this.form,
         });
-        console.log(response.data);
+        this.$store.commit("user/setUser", response.data.user);
       } catch (e) {
         this.errorsFromBackend = [...e.response.data.errors];
       } finally {

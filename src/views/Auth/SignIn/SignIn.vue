@@ -206,8 +206,8 @@ export default {
           user: this.form,
           keepMeSignedIn: this.keepMeSignedIn,
         });
-        console.log(response.data);
         localStorage.setItem("previousSignInType", "email");
+        this.$store.commit("user/setUser", response.data.user);
       } catch (e) {
         this.errorsFromBackend = [...e.response.data.errors];
       } finally {
