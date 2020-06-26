@@ -1,9 +1,9 @@
 <template>
   <footer>
     <ul>
-      <li><RouterLink to="help">Help</RouterLink></li>
-      <li><RouterLink to="about">About</RouterLink></li>
-      <li><RouterLink to="contact">Contact</RouterLink></li>
+      <li><RouterLink to="/help">Help</RouterLink></li>
+      <li><RouterLink to="/about">About</RouterLink></li>
+      <li><RouterLink to="/contact">Contact</RouterLink></li>
     </ul>
   </footer>
 </template>

@@ -7,15 +7,15 @@
         <BNavbar-nav class="ml-auto">
           <fragment v-if="signedIn">
             <BNavItemDropdown text="Account" right>
-              <BDropdownItem to="account">Account</BDropdownItem>
+              <BDropdownItem to="/account">Account</BDropdownItem>
               <BDropdownItem href="#" v-on:click.prevent="signOut()">
                 Sign out
               </BDropdownItem>
             </BNavItemDropdown>
           </fragment>
           <fragment v-else>
-            <BNavItem to="sign-in">Sign In</BNavItem>
-            <BNavItem to="register">Register</BNavItem>
+            <BNavItem to="/sign-in">Sign In</BNavItem>
+            <BNavItem to="/register">Register</BNavItem>
           </fragment>
         </BNavbar-nav>
       </BCollapse>

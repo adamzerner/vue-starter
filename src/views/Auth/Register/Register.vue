@@ -70,7 +70,7 @@
       <hr />
       <section class="bottom">
         Already have an account?
-        <RouterLink to="sign-in">Sign in here.</RouterLink>
+        <RouterLink to="/sign-in">Sign in here.</RouterLink>
       </section>
     </BForm>
   </section>

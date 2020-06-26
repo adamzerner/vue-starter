@@ -1,7 +1,7 @@
 <template>
   <section>
     <p v-if="header">{{ header }}</p>
-    <BButton variant="primary" size="lg" block to="register">
+    <BButton variant="primary" size="lg" block to="/register">
       {{ buttonText }}
     </BButton>
   </section>

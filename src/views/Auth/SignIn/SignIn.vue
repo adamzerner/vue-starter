@@ -56,7 +56,7 @@
       <BFormCheckbox v-model="keepMeSignedIn" class="remember-me">
         Keep me signed in on this computer
       </BFormCheckbox>
-      <RouterLink to="forgot-password">Forgot your password?</RouterLink>
+      <RouterLink to="/forgot-password">Forgot your password?</RouterLink>
       <hr />
       <SocialButton
         v-bind:submitting="submitting.google"
@@ -82,7 +82,7 @@
       <hr />
       <p>
         Don't have an account?
-        <RouterLink to="register">Register here.</RouterLink>
+        <RouterLink to="/register">Register here.</RouterLink>
       </p>
     </BForm>
   </section>
@@ -202,7 +202,7 @@ export default {
       this.submitting.email = true;
 
       try {
-        let response = await this.$http.post("/auth/sign-in", {
+        const response = await this.$http.post("/auth/sign-in", {
           user: this.form,
           keepMeSignedIn: this.keepMeSignedIn,
         });

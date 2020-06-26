@@ -2,6 +2,11 @@
   <section>
     <PageHeader>Account</PageHeader>
     <pre>{{ user }}</pre>
+    <h5>Email</h5>
+    <p>{{ user.email }}</p>
+    <p>
+      <RouterLink to="/account/edit">Edit your account</RouterLink>
+    </p>
     <AsyncButton
       defaultText="Delete account"
       submittingText="Deleting account..."

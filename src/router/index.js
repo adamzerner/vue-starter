@@ -7,6 +7,7 @@ import Register from "@/views/Auth/Register/Register.vue";
 import ForgotPassword from "@/views/Auth/ForgotPassword/ForgotPassword.vue";
 import ChangePassword from "@/views/Auth/ChangePassword/ChangePassword.vue";
 import Account from "@/views/User/Account/Account.vue";
+import EditAccount from "@/views/User/EditAccount/EditAccount.vue";
 import Help from "@/views/Footer/Help/Help.vue";
 import About from "@/views/Footer/About/About.vue";
 import Contact from "@/views/Footer/Contact/Contact.vue";
@@ -61,6 +62,14 @@ const routes = [
     component: Account,
     meta: {
       title: "VueStarter | Account",
+    },
+  },
+  {
+    path: "/account/edit",
+    name: "edit-account",
+    component: EditAccount,
+    meta: {
+      title: "VueStarter | Edit Account",
     },
   },
   {
