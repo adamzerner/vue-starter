@@ -99,6 +99,7 @@ export default {
       try {
         await this.$http.patch("/auth/change-password", this.form);
         this.$router.push("/account");
+        alert("Your password has been successfully changed.");
       } catch (e) {
         this.errorsFromBackend = [...e.response.data.errors];
       } finally {
