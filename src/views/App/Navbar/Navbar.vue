@@ -7,6 +7,7 @@
         <BNavbar-nav class="ml-auto">
           <fragment v-if="signedIn">
             <BNavItemDropdown text="Account" right>
+              <BDropdownItem to="account">Account</BDropdownItem>
               <BDropdownItem href="#" v-on:click.prevent="signOut()">
                 Sign out
               </BDropdownItem>

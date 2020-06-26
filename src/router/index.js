@@ -6,6 +6,7 @@ import SignIn from "@/views/Auth/SignIn/SignIn.vue";
 import Register from "@/views/Auth/Register/Register.vue";
 import ForgotPassword from "@/views/Auth/ForgotPassword/ForgotPassword.vue";
 import ChangePassword from "@/views/Auth/ChangePassword/ChangePassword.vue";
+import Account from "@/views/Auth/Account/Account.vue";
 import Help from "@/views/Footer/Help/Help.vue";
 import About from "@/views/Footer/About/About.vue";
 import Contact from "@/views/Footer/Contact/Contact.vue";
@@ -52,6 +53,14 @@ const routes = [
     component: ChangePassword,
     meta: {
       title: "VueStarter | Change Password",
+    },
+  },
+  {
+    path: "/account",
+    name: "account",
+    component: Account,
+    meta: {
+      title: "VueStarter | Account",
     },
   },
   {
