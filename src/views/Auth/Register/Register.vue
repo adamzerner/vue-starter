@@ -154,6 +154,7 @@ export default {
           user: this.form,
         });
         this.$store.commit("user/setUser", response.data.user);
+        this.$router.push("/");
       } catch (e) {
         this.errorsFromBackend = [...e.response.data.errors];
       } finally {
