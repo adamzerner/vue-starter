@@ -1,12 +1,14 @@
 <template>
   <section>
     <PageHeader>Change password</PageHeader>
+    <Errors v-bind:errors="errorsFromBackend" />
     <BForm v-on:submit.stop.prevent="submit" novalidate>
       <BFormGroup label="Old password">
         <BFormInput
           v-model="$v.form.oldPassword.$model"
           v-bind:state="validateState('oldPassword')"
           type="text"
+          autofocus
         ></BFormInput>
         <BFormInvalidFeedback>
           You forgot to include your old password.
@@ -17,7 +19,6 @@
           v-model="$v.form.newPassword.$model"
           v-bind:state="validateState('newPassword')"
           type="text"
-          autofocus
         ></BFormInput>
         <BFormInvalidFeedback>
           <span v-if="!$v.form.newPassword.required">
@@ -42,6 +43,7 @@
 
 <script>
 import PageHeader from "@/components/PageHeader/PageHeader.vue";
+import Errors from "@/components/Errors/Errors.vue";
 import SubmitButton from "@/components/SubmitButton/SubmitButton.vue";
 import { required, minLength } from "vuelidate/lib/validators";
 
@@ -49,6 +51,7 @@ export default {
   name: "ChangePassword",
   components: {
     PageHeader,
+    Errors,
     SubmitButton,
   },
   data() {
@@ -59,6 +62,7 @@ export default {
       },
       submitAttempted: false,
       submitting: false,
+      errorsFromBackend: [],
     };
   },
   validations: {
@@ -82,7 +86,7 @@ export default {
 
       return null;
     },
-    submit() {
+    async submit() {
       this.submitAttempted = true;
       this.$v.form.$touch();
 
@@ -91,9 +95,15 @@ export default {
       }
 
       this.submitting = true;
-      setTimeout(() => {
+
+      try {
+        await this.$http.patch("/auth/change-password", this.form);
+        this.$router.push("/account");
+      } catch (e) {
+        this.errorsFromBackend = [...e.response.data.errors];
+      } finally {
         this.submitting = false;
-      }, 1000);
+      }
     },
   },
 };

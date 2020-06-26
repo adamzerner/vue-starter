@@ -46,7 +46,7 @@ export default [
     },
   },
   {
-    path: "/change-password",
+    path: "/account/change-password",
     name: "change-password",
     component: ChangePassword,
     meta: {

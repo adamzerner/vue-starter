@@ -7,6 +7,11 @@
     <p>
       <RouterLink to="/account/edit">Edit your account</RouterLink>
     </p>
+    <p>
+      <RouterLink to="/account/change-password">
+        Change your password
+      </RouterLink>
+    </p>
     <AsyncButton
       defaultText="Delete account"
       submittingText="Deleting account..."
