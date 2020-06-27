@@ -79,3 +79,10 @@ The template is based off of Julian Shapiro's advice for [how to construct landi
 From his guide:
 
 > Tip — If you don’t yet have noteworthy customers, provide your product for free to people at well-known companies. Then place their company logos on your site if they wind up using you.
+
+### SSO
+
+You have to create and configure stuff in developer console for Google, Twitter and LinkedIn. Go to the corresponding Passport strategy packages to see some direction for how to do that.
+
+- For Twitter make sure you enable email access.
+- For LinkedIn you need to add the "Sign In with LinkedIn" product in order to have access to the users email.

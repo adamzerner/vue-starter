@@ -22,6 +22,7 @@ export default {
     return {
       buttonProps: {
         block: true,
+        href: `${process.env.VUE_APP_BASE_URL}/sso/${this.socialIcon}`,
       },
     };
   },
