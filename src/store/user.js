@@ -9,6 +9,11 @@ export default {
     signedIn(state) {
       return !!state.user.email;
     },
+    usingSSO(state) {
+      return (
+        state.user.googleId || state.user.twitterId || state.user.linkedinId
+      );
+    },
   },
   actions: {
     clearUser(context) {
