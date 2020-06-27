@@ -2,9 +2,13 @@
   <section class="container">
     <BNavbar toggleable="sm" variant="light">
       <BNavbarBrand to="/">Home</BNavbarBrand>
+      <BNavbarNav>
+        <BNavItem to="/free">Free</BNavItem>
+        <BNavItem to="/basic">Basic</BNavItem>
+        <BNavItem to="/premium">Premium</BNavItem>
+      </BNavbarNav>
       <BCollapse id="nav-collapse" is-nav>
-        <BNavbar-nav></BNavbar-nav>
-        <BNavbar-nav class="ml-auto">
+        <BNavbarNav class="ml-auto">
           <fragment v-if="signedIn">
             <BNavItemDropdown text="Account" right>
               <BDropdownItem to="/account">Account</BDropdownItem>
@@ -17,7 +21,7 @@
             <BNavItem to="/sign-in">Sign In</BNavItem>
             <BNavItem to="/register">Register</BNavItem>
           </fragment>
-        </BNavbar-nav>
+        </BNavbarNav>
       </BCollapse>
     </BNavbar>
   </section>

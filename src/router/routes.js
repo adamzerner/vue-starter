@@ -6,6 +6,9 @@ import ChangePassword from "@/views/Auth/ChangePassword/ChangePassword.vue";
 import CreateNewPassword from "@/views/Auth/CreateNewPassword/CreateNewPassword.vue";
 import Account from "@/views/User/Account/Account.vue";
 import EditAccount from "@/views/User/EditAccount/EditAccount.vue";
+import Free from "@/views/DomainSpecific/Free/Free.vue";
+import Basic from "@/views/DomainSpecific/Basic/Basic.vue";
+import Premium from "@/views/DomainSpecific/Premium/Premium.vue";
 import Help from "@/views/Footer/Help/Help.vue";
 import About from "@/views/Footer/About/About.vue";
 import Contact from "@/views/Footer/Contact/Contact.vue";
@@ -80,6 +83,32 @@ export default [
     meta: {
       requiresSignedIn: true,
       title: "VueStarter | Edit Account",
+    },
+  },
+  {
+    path: "/free",
+    name: "free",
+    component: Free,
+    meta: {
+      title: "VueStarter | Free",
+    },
+  },
+  {
+    path: "/basic",
+    name: "basic",
+    component: Basic,
+    meta: {
+      requiresPaidBasic: true,
+      title: "VueStarter | Basic",
+    },
+  },
+  {
+    path: "/premium",
+    name: "premium",
+    component: Premium,
+    meta: {
+      requiresPaidPremium: true,
+      title: "VueStarter | Premium",
     },
   },
   {
