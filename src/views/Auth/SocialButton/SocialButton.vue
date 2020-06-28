@@ -5,7 +5,7 @@
     v-bind:submittingText="submittingText"
     v-bind:socialIcon="socialIcon"
     v-bind:buttonProps="buttonProps"
-    v-on:click="$emit('click')"
+    v-on:click="setPreviousSignInType"
   />
 </template>
 
@@ -25,6 +25,24 @@ export default {
         href: `${process.env.VUE_APP_BASE_URL}/sso/${this.socialIcon}`,
       },
     };
+  },
+  computed: {
+    previousSignInType() {
+      if (socialIcon === "google") {
+        return "Google";
+      } else if (socialIcon === "twitter") {
+        return "Twitter";
+      } else if (socialIcon === "linkedin") {
+        return "LinkedIn";
+      } else {
+        return "Error";
+      }
+    },
+  },
+  methods: {
+    setPreviousSignInType() {
+      localStorage.setItem("previousSignInType", this.previousSignInType);
+    },
   },
 };
 </script>

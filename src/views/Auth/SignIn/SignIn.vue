@@ -63,21 +63,18 @@
         defaultText="Sign in with Google"
         submittingText="Signing in with Google..."
         socialIcon="google"
-        v-on:click="signInWithGoogle"
       />
       <SocialButton
         v-bind:submitting="submitting.twitter"
         defaultText="Sign in with Twitter"
         submittingText="Signing in with Twitter..."
         socialIcon="twitter"
-        v-on:click="signInWithTwitter"
       />
       <SocialButton
         v-bind:submitting="submitting.linkedin"
         defaultText="Sign in with LinkedIn"
         submittingText="Signing in with LinkedIn..."
         socialIcon="linkedin"
-        v-on:click="signInWithLinkedIn"
       />
       <hr />
       <p>
@@ -231,27 +228,6 @@ export default {
       } finally {
         this.submitting.email = false;
       }
-    },
-    signInWithGoogle() {
-      this.submitting.google = true;
-      setTimeout(() => {
-        localStorage.setItem("previousSignInType", "Google");
-        this.submitting.google = false;
-      }, 1000);
-    },
-    signInWithTwitter() {
-      this.submitting.twitter = true;
-      setTimeout(() => {
-        localStorage.setItem("previousSignInType", "Twitter");
-        this.submitting.twitter = false;
-      }, 1000);
-    },
-    signInWithLinkedIn() {
-      this.submitting.linkedin = true;
-      setTimeout(() => {
-        localStorage.setItem("previousSignInType", "LinkedIn");
-        this.submitting.linkedin = false;
-      }, 1000);
     },
   },
 };

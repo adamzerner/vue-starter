@@ -51,21 +51,18 @@
         defaultText="Register with Google"
         submittingText="Registering with Google..."
         socialIcon="google"
-        v-on:click="registerWithGoogle"
       />
       <SocialButton
         v-bind:submitting="submitting.twitter"
         defaultText="Register with Twitter"
         submittingText="Registering with Twitter..."
         socialIcon="twitter"
-        v-on:click="registerWithTwitter"
       />
       <SocialButton
         v-bind:submitting="submitting.linkedin"
         defaultText="Register with LinkedIn"
         submittingText="Registering with LinkedIn..."
         socialIcon="linkedin"
-        v-on:click="registerWithLinkedIn"
       />
       <hr />
       <section class="bottom">
@@ -160,24 +157,6 @@ export default {
       } finally {
         this.submitting.email = false;
       }
-    },
-    registerWithGoogle() {
-      this.submitting.google = true;
-      setTimeout(() => {
-        this.submitting.google = false;
-      }, 1000);
-    },
-    registerWithTwitter() {
-      this.submitting.twitter = true;
-      setTimeout(() => {
-        this.submitting.twitter = false;
-      }, 1000);
-    },
-    registerWithLinkedIn() {
-      this.submitting.linkedin = true;
-      setTimeout(() => {
-        this.submitting.linkedin = false;
-      }, 1000);
     },
   },
 };
