@@ -1,7 +1,4 @@
-.env
-.env.development
-.env.production
-.env.test
+.env.*
 
 notes.txt
 shit.todo
@@ -12,10 +9,6 @@ node_modules
 
 /tests/e2e/videos/
 /tests/e2e/screenshots/
-
-# local env files
-.env.local
-.env.*.local
 
 # Log files
 npm-debug.log*
