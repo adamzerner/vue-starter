@@ -86,3 +86,7 @@ You have to create and configure stuff in developer console for Google, Twitter 
 
 - For Twitter make sure you enable email access.
 - For LinkedIn you need to add the "Sign In with LinkedIn" product in order to have access to the users email.
+
+### Blog
+
+I thought about adding blogging functionality but I think that's overkill. Using a some other third party tool like VuePress and pointing the domain to blog.vuestarter.com seems like a better idea.
