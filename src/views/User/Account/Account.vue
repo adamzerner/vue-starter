@@ -4,6 +4,8 @@
     <pre>{{ user }}</pre>
     <h5>Email</h5>
     <p>{{ user.email }}</p>
+    <h5>Plan</h5>
+    <p>{{ plan }}</p>
     <fragment v-if="!usingSSO">
       <p>
         <RouterLink to="/account/edit">Edit your account</RouterLink>
@@ -53,6 +55,17 @@ export default {
     },
     usingSSO() {
       return this.$store.getters["user/usingSSO"];
+    },
+    plan() {
+      if (this.user.auth.length === 0) {
+        return "Free";
+      } else if (this.user.auth[0] === "basic") {
+        return "Basic";
+      } else if (this.user.auth[0] === "premium") {
+        return "Premium";
+      } else {
+        return "Error";
+      }
     },
   },
   methods: {
