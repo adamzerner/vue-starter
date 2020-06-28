@@ -28,11 +28,11 @@ export default {
   },
   computed: {
     previousSignInType() {
-      if (socialIcon === "google") {
+      if (this.socialIcon === "google") {
         return "Google";
-      } else if (socialIcon === "twitter") {
+      } else if (this.socialIcon === "twitter") {
         return "Twitter";
-      } else if (socialIcon === "linkedin") {
+      } else if (this.socialIcon === "linkedin") {
         return "LinkedIn";
       } else {
         return "Error";
