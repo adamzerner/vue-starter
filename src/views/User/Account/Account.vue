@@ -34,6 +34,11 @@ export default {
     PageHeader,
     AsyncButton,
   },
+  created() {
+    if (window.location.href.includes("?")) {
+      this.$router.replace("/account");
+    }
+  },
   data() {
     return {
       submitting: false,
