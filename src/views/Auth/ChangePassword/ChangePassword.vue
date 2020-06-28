@@ -100,6 +100,7 @@ export default {
         await this.$http.patch("/auth/change-password", this.form);
         this.$router.push("/account");
         alert("Your password has been successfully changed.");
+        localStorage.setItem("changedPasswordDate", new Date());
       } catch (e) {
         this.errorsFromBackend = [...e.response.data.errors];
       } finally {
