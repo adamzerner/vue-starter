@@ -6,6 +6,7 @@ import ChangePassword from "@/views/Auth/ChangePassword/ChangePassword.vue";
 import CreateNewPassword from "@/views/Auth/CreateNewPassword/CreateNewPassword.vue";
 import Account from "@/views/User/Account/Account.vue";
 import EditAccount from "@/views/User/EditAccount/EditAccount.vue";
+import Purchase from "@/views/User/Purchase/Purchase.vue";
 import Free from "@/views/DomainSpecific/Free/Free.vue";
 import Basic from "@/views/DomainSpecific/Basic/Basic.vue";
 import Premium from "@/views/DomainSpecific/Premium/Premium.vue";
@@ -83,6 +84,15 @@ export default [
     meta: {
       requiresSignedIn: true,
       title: "VueStarter | Edit Account",
+    },
+  },
+  {
+    path: "/purchase",
+    name: "purchase",
+    component: Purchase,
+    meta: {
+      requiresSignedIn: true,
+      title: "VueStarter | Purchase",
     },
   },
   {
