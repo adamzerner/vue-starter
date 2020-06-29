@@ -123,7 +123,7 @@ export default {
     if (this.$route.query.error) {
       if (this.$route.query.error === "email-in-use") {
         this.errorsFromBackend.push(
-          "The email you're trying to sign up with is already in  use."
+          "The email you're trying to sign up with is already in use."
         );
       }
     }
