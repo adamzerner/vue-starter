@@ -2,12 +2,12 @@
   <section class="container">
     <BNavbar toggleable="sm" variant="light">
       <BNavbarBrand to="/">Home</BNavbarBrand>
-      <BNavbarNav>
-        <BNavItem to="/free">Free</BNavItem>
-        <BNavItem to="/basic">Basic</BNavItem>
-        <BNavItem to="/premium">Premium</BNavItem>
-      </BNavbarNav>
       <BCollapse id="nav-collapse" is-nav>
+        <BNavbarNav>
+          <BNavItem to="/free">Free</BNavItem>
+          <BNavItem to="/basic">Basic</BNavItem>
+          <BNavItem to="/premium">Premium</BNavItem>
+        </BNavbarNav>
         <BNavbarNav class="ml-auto">
           <fragment v-if="signedIn">
             <BNavItemDropdown text="Account" right>
