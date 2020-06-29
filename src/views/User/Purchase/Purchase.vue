@@ -2,9 +2,25 @@
   <section>
     <PageHeader>Purchase</PageHeader>
     <BButton v-on:click="purchaseBasic">Purchase basic plan</BButton>
-    <br />
-    <br />
     <BButton v-on:click="purchasePremium">Purchase premium plan</BButton>
+    <p>
+      Note: The API keys are in test mode so there is no real money being
+      exchanged. Use
+      <code>4242 4242 4242 4242</code>
+      for the credit card number and whatever else for the other form fields.
+    </p>
+    <p v-if="environment !== 'production'">
+      Note: To test in development you'll need to
+      <!-- prettier-ignore -->
+      <a href="https://stripe.com/docs/payments/checkout/accept-a-payment#testing-webhooks-locally">
+        forward the webhooks to your local server
+      </a>
+      . The
+      <code>yarn forward-stripe-webhook</code>
+      script will do that for you if you're using
+      <a href="https://github.com/adamzerner/node-starter">NodeStarter</a>
+      .
+    </p>
   </section>
 </template>
 
@@ -25,6 +41,11 @@ export default {
       stripe: null,
       errorsFromBackend: [],
     };
+  },
+  computed: {
+    environment() {
+      return process.env.NODE_ENV;
+    },
   },
   methods: {
     async purchaseBasic() {
@@ -59,4 +80,9 @@ export default {
 };
 </script>
 
-<style lang="css" scoped></style>
+<style lang="scss" scoped>
+.btn {
+  display: block;
+  margin-bottom: 20px;
+}
+</style>
