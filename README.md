@@ -8,7 +8,7 @@ Note: This repo is only for client-side code. For server-side code, it works in 
 
 ### First steps
 
-1. `git clone git@github.com:adamzerner/vue-starter.git your-apps-name`
+1. [Generate your own template](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template) and then clone. Or clone from this repo with `git clone git@github.com:adamzerner/vue-starter.git your-apps-name` and then set your `git remote` properly.
 2. `yarn install`
 3. Set `VUE_APP_BASE_URL` to your API server in `.env.development` (eg. `localhost:3000`)
 4. Make sure your API server (eg. [NodeStarter](https://github.com/adamzerner/node-starter)) is up and running
