@@ -20,7 +20,7 @@ export default [
     name: "home",
     component: Home,
     meta: {
-      title: "VueStarter",
+      title: "Poker Club Tools",
     },
   },
   {
@@ -29,7 +29,7 @@ export default [
     component: SignIn,
     meta: {
       requiresSignedOut: true,
-      title: "VueStarter | Sign In",
+      title: "Poker Club Tools | Sign In",
     },
   },
   {
@@ -38,7 +38,7 @@ export default [
     component: Register,
     meta: {
       requiresSignedOut: true,
-      title: "VueStarter | Register",
+      title: "Poker Club Tools | Register",
     },
   },
   {
@@ -47,7 +47,7 @@ export default [
     component: ForgotPassword,
     meta: {
       requiresSignedOut: true,
-      title: "VueStarter | Forgot Password",
+      title: "Poker Club Tools | Forgot Password",
     },
   },
   {
@@ -56,7 +56,7 @@ export default [
     component: ChangePassword,
     meta: {
       requiresSignedIn: true,
-      title: "VueStarter | Change Password",
+      title: "Poker Club Tools | Change Password",
     },
   },
   {
@@ -65,7 +65,7 @@ export default [
     component: CreateNewPassword,
     meta: {
       requiresSignedOut: true,
-      title: "VueStarter | Create New Password",
+      title: "Poker Club Tools | Create New Password",
     },
   },
   {
@@ -74,7 +74,7 @@ export default [
     component: Account,
     meta: {
       requiresSignedIn: true,
-      title: "VueStarter | Account",
+      title: "Poker Club Tools | Account",
     },
   },
   {
@@ -83,7 +83,7 @@ export default [
     component: EditAccount,
     meta: {
       requiresSignedIn: true,
-      title: "VueStarter | Edit Account",
+      title: "Poker Club Tools | Edit Account",
     },
   },
   {
@@ -92,7 +92,7 @@ export default [
     component: Purchase,
     meta: {
       requiresSignedIn: true,
-      title: "VueStarter | Purchase",
+      title: "Poker Club Tools | Purchase",
     },
   },
   {
@@ -100,7 +100,7 @@ export default [
     name: "free",
     component: Free,
     meta: {
-      title: "VueStarter | Free",
+      title: "Poker Club Tools | Free",
     },
   },
   {
@@ -109,7 +109,7 @@ export default [
     component: Basic,
     meta: {
       requiresPaidBasic: true,
-      title: "VueStarter | Basic",
+      title: "Poker Club Tools | Basic",
     },
   },
   {
@@ -118,7 +118,7 @@ export default [
     component: Premium,
     meta: {
       requiresPaidPremium: true,
-      title: "VueStarter | Premium",
+      title: "Poker Club Tools | Premium",
     },
   },
   {
@@ -126,7 +126,7 @@ export default [
     name: "help",
     component: Help,
     meta: {
-      title: "VueStarter | Help",
+      title: "Poker Club Tools | Help",
     },
   },
   {
@@ -134,7 +134,7 @@ export default [
     name: "about",
     component: About,
     meta: {
-      title: "VueStarter | About",
+      title: "Poker Club Tools | About",
     },
   },
   {
@@ -142,7 +142,7 @@ export default [
     name: "contact",
     component: Contact,
     meta: {
-      title: "VueStarter | Contact",
+      title: "Poker Club Tools | Contact",
     },
   },
 ];
