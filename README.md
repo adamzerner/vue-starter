@@ -10,8 +10,11 @@ Note: This repo is only for client-side code. For server-side code, it works in 
 
 1. `git clone git@github.com:adamzerner/vue-starter.git your-apps-name`
 2. `yarn install`
-3. Set `VUE_APP_BASE_URL` to your API server in `.env.development` (eg. `localhost:3000`)
-4. Make sure your API server (eg. [NodeStarter](https://github.com/adamzerner/node-starter)) is up and running
+3. Create `.env`, `.env.development`, `.env.production`, and `.env.test` files
+4. Change the `name` in `package.json`
+5. Change the `title`s in `routes.js` where it says `VueStarter`
+6. Set `VUE_APP_BASE_URL` to your API server in `.env.development` (eg. `localhost:3000`)
+7. Make sure your API server (eg. [NodeStarter](https://github.com/adamzerner/node-starter)) is up and running
 
 ### [Prettier](https://prettier.io/)
 
